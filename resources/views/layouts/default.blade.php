@@ -26,8 +26,8 @@
             </style>
         @endif
     </head>
-    <body class="bg-white text-[#1b1b18] flex min-h-screen flex-col relative">
-        <header class="absolute inset-x-0 right-0 z-10 lg:max-w-full max-w-[335px] text-sm not-has-[nav]:hidden bg-stone-100/50 p-6 lg:p-8">
+    <body class="bg-stone-100/20 text-[#1b1b18] flex min-h-screen flex-col relative">
+        <header class="lg:absolute lg:inset-x-0 lg:right-0 lg:z-10 max-w-full text-sm not-has-[nav]:hidden bg-stone-100/50 p-6 lg:p-8">
             <nav class="flex items-center justify-end gap-4">
                 @auth
                     <a

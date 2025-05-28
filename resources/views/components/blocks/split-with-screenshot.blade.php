@@ -7,7 +7,7 @@
         </defs>
         <rect width="100%" height="100%" stroke-width="0" fill="url(#0787a7c5-978c-4f66-83c7-11c213f99cb7)" />
     </svg>
-    <div class="mx-auto xmax-w-7xl px-6 pt-10 pb-24 sm:pb-32 lg:flex lg:px-8 lg:py-40">
+    <div class="mx-auto max-w-screen px-6 pt-10 pb-24 sm:pb-32 lg:flex lg:px-32 lg:py-40">
         <div class="mx-auto max-w-2xl lg:mx-0 lg:shrink-0 lg:pt-8">
             <img class="h-11" src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600" alt="Your Company">
             <div class="mt-24 sm:mt-32 lg:mt-16">
