@@ -15,6 +15,7 @@ class PageBlocksServiceProvider extends ServiceProvider
             return [
                 'blocks' => [
                     \App\PageBlocks\SplitWithScreenshotBlock::make(),
+                    \App\PageBlocks\CenteredOnDarkPanelBlock::make()
                 ]
             ];
         });
