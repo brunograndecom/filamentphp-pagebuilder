@@ -1,61 +1,87 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Filament Page Builder
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+This is a Laravel application with Filament backend that allows you to create pages using a visual editor.
 
-## About Laravel
+My task here was to create pre-defined blocks that can be used to create page content.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Installation 
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Create a `.env` file by copying the `.env.example` file and filling in the correct values.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Then run:
+```bash
+composer install
+php artisan key:generate
+npm install && npm run build
+```
 
-## Learning Laravel
+This application includes a custom installation command that sets up the application and creates a Filament admin user automatically.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### Quick Installation
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+To install the application, simply run:
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+```bash
+php artisan app:install
+```
 
-## Laravel Sponsors
+This command will:
+1. Run database migrations
+2. Create a Filament admin user with predefined credentials
+3. Clear and optimize application caches
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### Fresh Installation
 
-### Premium Partners
+If you want to start with a completely clean database (dropping all existing tables):
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+```bash
+php artisan app:install --fresh
+```
 
-## Contributing
+**⚠️ Warning:** The `--fresh` option will drop all existing tables and data. Use with caution!
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### Default Admin Credentials
 
-## Code of Conduct
+After installation, you can access the Filament admin panel with these credentials:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+- **URL**: `{APP_URL}/admin` (e.g., `http://localhost/admin`)
+- **Email**: `admin@example.com`
+- **Password**: `Password123`
 
-## Security Vulnerabilities
+### What Gets Created
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+#### 1. Database Tables
+The installation runs all Laravel migrations, creating:
+- `users` table
+- `cache` table  
+- `jobs` table
+- `password_reset_tokens` table
+- `sessions` table
+- `pages` table
 
-## License
+#### 2. Admin User
+A Filament admin user is created with:
+- Name: `admin`
+- Email: `admin@example.com`
+- Password: `Password123`
+- Email verified timestamp set to current time
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## Page Blocks
+
+The application comes with a set of pre-defined blocks that can be used to create page content.
+
+### Creating a new block
+
+To create a new block, run:
+```bash
+php artisan make:page-block NewBlock
+```
+
+This will create a new block class in the `app/PageBlocks` directory and a new blade component in the `app/View/Components/Blocks` directory with its own view file.
+
+### Available Blocks
+
+The application comes with the following blocks as examples, based on Tailwind Plus UI Blocks:
+
+- `SplitWithScreenshotBlock` - based on: https://tailwindcss.com/plus/ui-blocks/marketing/sections/heroes#component-54294e7b86ddf5371565dbdfd133d79c
+- `CenteredOnDarkPanelBlock` - based on: https://tailwindcss.com/plus/ui-blocks/marketing/sections/cta-sections#component-e96076d46250608ad1a5306c03921371
