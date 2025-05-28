@@ -14,7 +14,7 @@ class PageBlocksServiceProvider extends ServiceProvider
         $this->app->singleton('page-blocks', function () {
             return [
                 'blocks' => [
-                    //
+                    \App\PageBlocks\SplitWithScreenshotBlock::make(),
                 ]
             ];
         });
